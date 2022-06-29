@@ -21,7 +21,7 @@ namespace LoginForm
             /*Application.Run(new KhoaHoc());*/
 
             /*Application.Run(new Form2());*/
-            Application.Run(new thongkeviewvideo());
+            Application.Run(new GopY());
             /* Application.Run(new mediaplayer("6/20/2022 9:34:43 AM"));*/
 
             /*Application.Run(new PageInfo("6/22/2022 5:46:46 PM"));*/
