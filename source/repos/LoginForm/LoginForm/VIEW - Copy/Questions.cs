@@ -16,6 +16,8 @@ namespace LoginForm
         public Questions()
         {
             InitializeComponent();
+            GetLevels();
+            DisplayQuestion();  
         }
         SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-455C16V\SQLEXPRESS;Initial Catalog=Quizdb;Integrated Security=True");
 
@@ -127,7 +129,7 @@ namespace LoginForm
                     cmd.Parameters.AddWithValue("@QS", LvCb.SelectedValue.ToString());
                     cmd.Parameters.AddWithValue("@QKey", Key);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Member Updated ");
+                    MessageBox.Show("Question Updated ");
                     Con.Close();
                     Reset();
                     DisplayQuestion();
@@ -156,6 +158,21 @@ namespace LoginForm
         private void ResetBtn_Click(object sender, EventArgs e)
         {
             Reset();    
+        }
+        private void FilterByLv()
+        {
+            Con.Open();
+            string Query = "select * from Questiontbl where QS = '" + LvCb.SelectedValue.ToString() + "'";
+            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            QuestionDGV.DataSource = ds.Tables[0];
+            Con.Close();
+        }
+        private void LvCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            FilterByLv();
         }
     }
 }

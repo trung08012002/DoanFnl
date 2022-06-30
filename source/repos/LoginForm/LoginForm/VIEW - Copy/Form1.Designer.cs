@@ -41,6 +41,7 @@ namespace LoginForm
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LvCb = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,7 +62,7 @@ namespace LoginForm
             // 
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserName.Font = new System.Drawing.Font("Arial Narrow", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(119, 265);
+            this.txtUserName.Location = new System.Drawing.Point(119, 354);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(299, 37);
             this.txtUserName.TabIndex = 6;
@@ -70,7 +71,7 @@ namespace LoginForm
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Arial Narrow", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(119, 375);
+            this.txtPassword.Location = new System.Drawing.Point(119, 458);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(299, 37);
@@ -80,7 +81,7 @@ namespace LoginForm
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(119, 308);
+            this.panel1.Location = new System.Drawing.Point(119, 390);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(299, 1);
             this.panel1.TabIndex = 8;
@@ -89,7 +90,7 @@ namespace LoginForm
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(119, 418);
+            this.panel2.Location = new System.Drawing.Point(119, 497);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(299, 1);
             this.panel2.TabIndex = 9;
@@ -99,7 +100,7 @@ namespace LoginForm
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.button1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(16, 501);
+            this.button1.Location = new System.Drawing.Point(16, 569);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(402, 62);
             this.button1.TabIndex = 10;
@@ -112,7 +113,7 @@ namespace LoginForm
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.button2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(16, 580);
+            this.button2.Location = new System.Drawing.Point(16, 652);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(402, 62);
             this.button2.TabIndex = 11;
@@ -125,7 +126,7 @@ namespace LoginForm
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.label2.Location = new System.Drawing.Point(12, 450);
+            this.label2.Location = new System.Drawing.Point(12, 523);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 24);
             this.label2.TabIndex = 12;
@@ -137,7 +138,7 @@ namespace LoginForm
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
-            this.label3.Location = new System.Drawing.Point(247, 450);
+            this.label3.Location = new System.Drawing.Point(247, 523);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(171, 24);
             this.label3.TabIndex = 13;
@@ -146,7 +147,7 @@ namespace LoginForm
             // pictureBox3
             // 
             this.pictureBox3.Image = global::LoginForm.Properties.Resources.images__1_;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 339);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 418);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(80, 80);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -156,7 +157,7 @@ namespace LoginForm
             // pictureBox2
             // 
             this.pictureBox2.Image = global::LoginForm.Properties.Resources.images;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 229);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 311);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(80, 80);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -173,12 +174,22 @@ namespace LoginForm
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // LvCb
+            // 
+            this.LvCb.FormattingEnabled = true;
+            this.LvCb.Location = new System.Drawing.Point(16, 266);
+            this.LvCb.Name = "LvCb";
+            this.LvCb.Size = new System.Drawing.Size(402, 28);
+            this.LvCb.TabIndex = 14;
+            this.LvCb.Text = "Levels";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(446, 670);
+            this.ClientSize = new System.Drawing.Size(446, 742);
+            this.Controls.Add(this.LvCb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
@@ -218,6 +229,7 @@ namespace LoginForm
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox LvCb;
     }
 }
 

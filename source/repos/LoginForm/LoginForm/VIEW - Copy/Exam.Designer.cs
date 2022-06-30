@@ -64,6 +64,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Q10O2 = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.QDateP = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Q4 = new System.Windows.Forms.GroupBox();
             this.Q4O4 = new System.Windows.Forms.RadioButton();
@@ -88,13 +89,16 @@
             this.Q10 = new System.Windows.Forms.GroupBox();
             this.Q10O1 = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LvLbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Quiz = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.QTime = new System.Windows.Forms.DateTimePicker();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.CNameLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.Q8.SuspendLayout();
             this.Q7.SuspendLayout();
             this.TimingBar.SuspendLayout();
@@ -509,6 +513,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.QDateP);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.Q4);
             this.panel1.Controls.Add(this.Q3);
@@ -524,7 +530,7 @@
             this.panel1.Controls.Add(this.SubmitBtn);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.LvLbl);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.Quiz);
             this.panel1.Controls.Add(this.panel2);
@@ -534,6 +540,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1924, 999);
             this.panel1.TabIndex = 5;
+            // 
+            // QDateP
+            // 
+            this.QDateP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.QDateP.Location = new System.Drawing.Point(1667, 12);
+            this.QDateP.Name = "QDateP";
+            this.QDateP.Size = new System.Drawing.Size(125, 26);
+            this.QDateP.TabIndex = 15;
+            this.QDateP.Visible = false;
             // 
             // flowLayoutPanel1
             // 
@@ -807,15 +822,15 @@
             this.panel3.Size = new System.Drawing.Size(138, 10);
             this.panel3.TabIndex = 3;
             // 
-            // label2
+            // LvLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1619, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 26);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Levels";
+            this.LvLbl.AutoSize = true;
+            this.LvLbl.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LvLbl.Location = new System.Drawing.Point(1591, 9);
+            this.LvLbl.Name = "LvLbl";
+            this.LvLbl.Size = new System.Drawing.Size(70, 26);
+            this.LvLbl.TabIndex = 2;
+            this.LvLbl.Text = "Levels";
             // 
             // label3
             // 
@@ -833,16 +848,18 @@
             this.Quiz.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Quiz.Location = new System.Drawing.Point(15, 9);
             this.Quiz.Name = "Quiz";
-            this.Quiz.Size = new System.Drawing.Size(87, 26);
+            this.Quiz.Size = new System.Drawing.Size(272, 26);
             this.Quiz.TabIndex = 2;
-            this.Quiz.Text = "QuizPro";
+            this.Quiz.Text = "Alpha Center - English Quiz";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel2.Controls.Add(this.guna2PictureBox2);
+            this.panel2.Controls.Add(this.QTime);
             this.panel2.Controls.Add(this.guna2PictureBox1);
             this.panel2.Controls.Add(this.guna2CirclePictureBox2);
+            this.panel2.Controls.Add(this.CNameLbl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1798, 0);
             this.panel2.Name = "panel2";
@@ -853,18 +870,27 @@
             // 
             this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(29, 211);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(40, 297);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(52, 52);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.guna2PictureBox2.TabIndex = 10;
             this.guna2PictureBox2.TabStop = false;
             // 
+            // QTime
+            // 
+            this.QTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.QTime.Location = new System.Drawing.Point(3, 970);
+            this.QTime.Name = "QTime";
+            this.QTime.Size = new System.Drawing.Size(125, 26);
+            this.QTime.TabIndex = 14;
+            this.QTime.ValueChanged += new System.EventHandler(this.QTime_ValueChanged);
+            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(29, 23);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(40, 201);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(52, 52);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -875,13 +901,33 @@
             // 
             this.guna2CirclePictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox2.Image")));
             this.guna2CirclePictureBox2.ImageRotate = 0F;
-            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(29, 116);
+            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(40, 12);
             this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
             this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox2.Size = new System.Drawing.Size(52, 52);
             this.guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.guna2CirclePictureBox2.TabIndex = 9;
             this.guna2CirclePictureBox2.TabStop = false;
+            // 
+            // CNameLbl
+            // 
+            this.CNameLbl.AutoSize = true;
+            this.CNameLbl.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CNameLbl.Location = new System.Drawing.Point(36, 95);
+            this.CNameLbl.Name = "CNameLbl";
+            this.CNameLbl.Size = new System.Drawing.Size(60, 23);
+            this.CNameLbl.TabIndex = 2;
+            this.CNameLbl.Text = "Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(1519, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 26);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Level:";
             // 
             // Exam
             // 
@@ -893,6 +939,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exam";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Exam_Load);
             this.Q8.ResumeLayout(false);
             this.Q8.PerformLayout();
             this.Q7.ResumeLayout(false);
@@ -986,12 +1033,16 @@
         private System.Windows.Forms.GroupBox Q10;
         private System.Windows.Forms.RadioButton Q10O1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LvLbl;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Quiz;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox2;
+        private System.Windows.Forms.DateTimePicker QDateP;
+        private System.Windows.Forms.DateTimePicker QTime;
+        private System.Windows.Forms.Label CNameLbl;
+        private System.Windows.Forms.Label label1;
     }
 }

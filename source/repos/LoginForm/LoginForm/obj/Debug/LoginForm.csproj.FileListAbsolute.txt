@@ -217,3 +217,5 @@ C:\Users\TechCare\Desktop\DoanFnl\source\repos\LoginForm\LoginForm\obj\Debug\Log
 C:\Users\TechCare\Desktop\DoanFnl\source\repos\LoginForm\LoginForm\obj\Debug\LoginForm.exe
 C:\Users\TechCare\Desktop\DoanFnl\source\repos\LoginForm\LoginForm\obj\Debug\LoginForm.pdb
 C:\Users\TechCare\Desktop\DoanFnl\source\repos\LoginForm\LoginForm\obj\Debug\LoginForm.GopY.resources
+C:\Users\TechCare\Desktop\DoanFnl\source\repos\LoginForm\LoginForm\obj\Debug\LoginForm.Load.resources
+C:\Users\TechCare\Desktop\DoanFnl\source\repos\LoginForm\LoginForm\obj\Debug\LoginForm.ViewResult.resources

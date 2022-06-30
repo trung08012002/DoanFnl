@@ -71,6 +71,7 @@
             this.LvCb.Size = new System.Drawing.Size(114, 28);
             this.LvCb.TabIndex = 7;
             this.LvCb.Text = "Levels";
+            this.LvCb.SelectionChangeCommitted += new System.EventHandler(this.LvCb_SelectionChangeCommitted);
             // 
             // panel3
             // 

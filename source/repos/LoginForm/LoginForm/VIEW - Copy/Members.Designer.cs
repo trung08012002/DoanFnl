@@ -248,9 +248,9 @@
             this.Quiz.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Quiz.Location = new System.Drawing.Point(15, 9);
             this.Quiz.Name = "Quiz";
-            this.Quiz.Size = new System.Drawing.Size(87, 26);
+            this.Quiz.Size = new System.Drawing.Size(135, 26);
             this.Quiz.TabIndex = 2;
-            this.Quiz.Text = "QuizPro";
+            this.Quiz.Text = "Alpha Center";
             // 
             // panel1
             // 

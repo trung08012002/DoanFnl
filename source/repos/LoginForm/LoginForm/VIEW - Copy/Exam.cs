@@ -16,11 +16,14 @@ namespace LoginForm
         public Exam()
         {
             InitializeComponent();
-            //multiRandom();
+            CNameLbl.Text = Form1.memberName;
+            LvLbl.Text = Form1.lvName;
+            Qn = CountQuestion();
             FetchQuestion();
-            timer1.Start();
+           
         }
 
+        int Qn;
         SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-455C16V\SQLEXPRESS;Initial Catalog=Quizdb;Integrated Security=True");
         string a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
         string[] Ua = new string[10];
@@ -38,55 +41,97 @@ namespace LoginForm
         }
      
         
-
-        private int GererateRandom()
+       private int CountQuestion()
         {
-            Random rd = new Random();
-            int x = rd.Next(1, 4);
-            int y = rd.Next(1, 4);
-            int z = rd.Next(1, 4);
-            MessageBox.Show("" + x + "and" + y + "and" + z);
-            return x;
+            int Qnum;
+            Con.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("select Count(*) from Questiontbl where QS = '"+LvLbl.Text+"'", Con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            Qnum = Convert.ToInt32(dt.Rows[0][0]);
+            Con.Close();
+            MessageBox.Show("" + Qnum);
+            return Qnum;
         }
-        int chrono = 1000;
-        int Count = 0;
+        int chrono = 100;
+        int count = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
             chrono -= 1;
-            Count += 1;
-            TimingBar.Value = Count;
+            count += 1;
+            TimingBar.Value = count;
             TimeLbl.Text = "" + chrono;
-            if (TimingBar.Value == 1000)
+            if (TimingBar.Value == 100)
             {
                 TimingBar.Value = 0;
                 timer1.Stop();
                 MessageBox.Show("Time over!!");
+                //Form1 log = new Form1();
+                //this.Hide();
+
+                Score = 0;
+                checkQ1();
+                checkQ2();
+                checkQ3();
+                checkQ4();
+                checkQ5();
+                checkQ6();
+                checkQ7();
+                checkQ8();
+                checkQ9();
+                checkQ10();
+                MessageBox.Show("Score : " + Score);
+                InsertResult();
+                SaveHighestScore();
                 Form1 log = new Form1();
+                log.Show();
                 this.Hide();
             }
         }
+        private void SaveHighestScore()
+        {
+            Con.Open();
+            SqlDataAdapter sda2 = new SqlDataAdapter("select Max(RScore) from Resultstbl where Rmem = '"+CNameLbl.Text+"' ",Con);
+            DataTable dt2 = new DataTable();
+            sda2.Fill(dt2);
+            int BestScore = Convert.ToInt32(dt2.Rows[0][0].ToString());
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Update Memberstbl set MScore=@Ms where MName = @Mn", Con);
+                cmd.Parameters.AddWithValue("@Mn", CNameLbl.Text);
+                cmd.Parameters.AddWithValue("@Ms", BestScore);
+                cmd.ExecuteNonQuery();
+                
+               
+            
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+            Con.Close();
+        }
+
 
         int[] Keys = new int[10];
-        private void multiRandom()
+        private void Multirandom()
         {
             HashSet<int> numbers = new HashSet<int>();
             var rnd = new Random();
             while (numbers.Count < 10)
             {
-                numbers.Add(rnd.Next(1, 11));
-
+                numbers.Add(rnd.Next(15, Qn));
             }
-            for (int i = 0; i < 10; i++)
+            for (int i = 16; i < 26; i++)
             {
                 Keys[i] = numbers.ElementAt(i);
             }
         }
-        private void FetchQuestion()
+        private void FetchQuestion() 
         {
             try
             {
-                //int QNum = GererateRandom();
-                multiRandom();
+                Multirandom();
                 Con.Open();
                 string Query = "select * from Questiontbl where QId=" + Keys[0] + "";
                 SqlCommand cmd = new SqlCommand(Query, Con);
@@ -362,6 +407,9 @@ namespace LoginForm
                 Score = Score;
             }
         }
+
+        
+
         private void checkQ4()
         {
 
@@ -394,6 +442,12 @@ namespace LoginForm
                 Score = Score;
             }
         }
+
+        private void Exam_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
         private void checkQ5()
         {
 
@@ -586,6 +640,29 @@ namespace LoginForm
                 Score = Score;
             }
         }
+        private void InsertResult()
+        {
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("insert into Resultstbl (RLv,Rmem,Rdate,RTime,RScore) values (@RL,@RM,@RD,@RT,@RS)", Con);
+                cmd.Parameters.AddWithValue("@RL", LvLbl.Text);
+                cmd.Parameters.AddWithValue("@RM", CNameLbl.Text);
+                cmd.Parameters.AddWithValue("@RD", QDateP.Value.Date);
+                cmd.Parameters.AddWithValue("@RT", QTime.Text);
+                cmd.Parameters.AddWithValue("@RS", Score);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Result Save");
+                Con.Close();
+               /* Reset();
+                */
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+
+        }
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
             Score = 0;
@@ -600,7 +677,15 @@ namespace LoginForm
             checkQ9();
             checkQ10();
             MessageBox.Show("Score : " + Score);
+            InsertResult();
+            SaveHighestScore();
+            Form1 log = new Form1();
+            log.Show();
+            this.Hide();
         }
+        private void QTime_ValueChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
